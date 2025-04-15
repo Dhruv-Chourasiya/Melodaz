@@ -11,8 +11,8 @@ function secondstominutesseconds(seconds) {
     return `${formattedminutes}:${formattedseconds}`;
 }
 
-    
-    
+
+
 
 
 async function getsongs() {
@@ -34,22 +34,22 @@ async function getsongs() {
 
     return songs;
 }
-const playMusic=(track, pause=false)=>{
-    
-    currentsong.src="/Spotify/songs/"+track
-    if(!pause){
+const playMusic = (track, pause = false) => {
+
+    currentsong.src = "/Spotify/songs/" + track
+    if (!pause) {
 
         currentsong.play()
-        play.src="pause.svg"
+        play.src = "pause.svg"
     }
-    document.querySelector(".songinfo").innerHTML=decodeURI(track)
-    document.querySelector(".songtime").innerHTML="00:00 / 00:00"
+    document.querySelector(".songinfo").innerHTML = decodeURI(track)
+    document.querySelector(".songtime").innerHTML = "00:00 / 00:00"
 }
 async function main() {
-    
+
     // Get the list of all the songs
     let songs = await getsongs();
-    playMusic(songs[0],true)
+    playMusic(songs[0], true)
 
     // Add songs to the list
     let songUL = document.querySelector(".songlist").getElementsByTagName("ul")[0];
@@ -66,52 +66,52 @@ async function main() {
         
         </li>`;
     }
-Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e => {
-    e.addEventListener("click",element=>{
-        console.log(e.querySelector(".info").firstElementChild.innerHTML)    
-        playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
-    });
-    
-})
-//Attach eventlistner to play next aand pusic song
-play.addEventListener("click",()=>{
-    if(currentsong.paused){
-        currentsong.play()
-        play.src="pause.svg"
-    }
-    else{
-        currentsong.pause()
-        play.src="play.svg"
-    }
-})
-//Listen for time update event
-currentsong.addEventListener("timeupdate", () => {
-    
-        console.log(currentsong.currentTime,currentsong.duration)
+    Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e => {
+        e.addEventListener("click", element => {
+            console.log(e.querySelector(".info").firstElementChild.innerHTML)
+            playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim())
+        });
+
+    })
+    //Attach eventlistner to play next aand pusic song
+    play.addEventListener("click", () => {
+        if (currentsong.paused) {
+            currentsong.play()
+            play.src = "pause.svg"
+        }
+        else {
+            currentsong.pause()
+            play.src = "play.svg"
+        }
+    })
+    //Listen for time update event
+    currentsong.addEventListener("timeupdate", () => {
+
+        console.log(currentsong.currentTime, currentsong.duration)
         document.querySelector(".songtime").innerHTML =
             `${secondstominutesseconds(currentsong.currentTime)} / ${secondstominutesseconds(currentsong.duration)}`;
-            document.querySelector(".circle").style.left=(currentsong.currentTime/ currentsong.duration)*100 + "%";
-    
-});
-//  Add an Event listner to seekbar
-document.querySelector(".seekbar").addEventListener("click", (e) => {
-    // Calculate the percentage of the click position within the seekbar
-    const percentage = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
-    
-    // Update the position of the circle
-    document.querySelector(".circle").style.left = percentage + "%";
-    
-    // Set the current time of the song based on the click position
-    currentsong.currentTime = (currentsong.duration * percentage) / 100;
-});
-//ADD an event listner for hamburger
-  document.querySelector(".hamburger").addEventListener("click",()=>{
-    document.querySelector(".left").style.left="0";
-  });
-  //ADD an event listner for for close hamburger
-  document.querySelector(".close").addEventListener("click",()=>{
-    document.querySelector(".left").style.left="-100%"
-  })
+        document.querySelector(".circle").style.left = (currentsong.currentTime / currentsong.duration) * 100 + "%";
+
+    });
+    //  Add an Event listner to seekbar
+    document.querySelector(".seekbar").addEventListener("click", (e) => {
+        // Calculate the percentage of the click position within the seekbar
+        const percentage = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
+
+        // Update the position of the circle
+        document.querySelector(".circle").style.left = percentage + "%";
+
+        // Set the current time of the song based on the click position
+        currentsong.currentTime = (currentsong.duration * percentage) / 100;
+    });
+    //ADD an event listner for hamburger
+    document.querySelector(".hamburger").addEventListener("click", () => {
+        document.querySelector(".left").style.left = "0";
+    });
+    //ADD an event listner for for close hamburger
+    document.querySelector(".close").addEventListener("click", () => {
+        document.querySelector(".left").style.left = "-115%"
+    })
 }
 // Run main
 main();
