@@ -34,6 +34,7 @@ async function getsongs(folder) {
             songs.push(element.href.split(`/${folder}/`)[1]);
         }
     }
+    // Play the first song
 
     // Add songs to the list
     let songUL = document.querySelector(".songlist").getElementsByTagName("ul")[0];
@@ -60,7 +61,7 @@ async function getsongs(folder) {
     })
 
 
-
+   return songs
 }
 const playMusic = (track, pause = false) => {
 
@@ -93,7 +94,7 @@ async function displayalbums() {
             let a = await fetch(`http://127.0.0.1:3000/songs/${folder}/info.json`);
             let response = await a.json();
             console.log(response)
-            cardContainer.innerHTML = cardContainer.innerHTML + `  <div data-folder="cs" class="card">
+            cardContainer.innerHTML = cardContainer.innerHTML + `  <div data-folder="${folder}" class="card">
                         <div class="play">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                                 <rect width="24" height="24" fill="#1DB954" rx="12" />
@@ -107,7 +108,7 @@ async function displayalbums() {
 
                         <h2>${response.title}</h2>
 
-                        <p>${response.description}</p>
+                        <p>${response.discription}</p>
 
                     </div>`
         }
@@ -120,6 +121,7 @@ async function displayalbums() {
         e.addEventListener("click", async item => {
             console.log(item, item.currentTarget.dataset)
             songs = await getsongs(`songs/${item.currentTarget.dataset.folder}`)
+            playMusic(songs[0])
         })
 
     })
@@ -187,21 +189,34 @@ async function main() {
         if ((index + 1) < songs.length)
             playMusic(songs[index + 1])
     })
-    //ADD an event to volume
+       // Add an event to volume
     document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {
-        console.log(e, e.target.value)
+        console.log("Setting volume to", e.target.value, "/ 100")
         currentsong.volume = parseInt(e.target.value) / 100
+        if (currentsong.volume >0){
+            document.querySelector(".volume>img").src = document.querySelector(".volume>img").src.replace("mute.svg", "volume.svg")
+        }
     })
-    //Load the playlist when the card is clicked
-    Array.from(document.getElementsByClassName("card")).forEach(e => {
-        console.log(e)
-        e.addEventListener("click", async item => {
-            console.log(item, item.currentTarget.dataset)
-            songs = await getsongs(`songs/${item.currentTarget.dataset.folder}`)
-        })
+
+    // Add event listener to mute the track
+    document.querySelector(".volume>img").addEventListener("click", e=>{ 
+        if(e.target.src.includes("volume.svg")){
+            e.target.src = e.target.src.replace("volume.svg", "mute.svg")
+            currentsong.volume = 0;
+            document.querySelector(".range").getElementsByTagName("input")[0].value = 0;
+        }
+        else{
+            e.target.src = e.target.src.replace("mute.svg", "volume.svg")
+            currentsong.volume = .10;
+            document.querySelector(".range").getElementsByTagName("input")[0].value = 10;
+        }
 
     })
+
+
+
+
 
 }
-// Run main
-main();
+
+main() 

@@ -99,9 +99,9 @@ body {
 
 .cardContainer {
    margin: 15px;
-
+   
    display: flex;
-
+   max-height: 90vh;
    gap: 10px;
    flex-wrap: wrap;
    overflow-y: auto;
