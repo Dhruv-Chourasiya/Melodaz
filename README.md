@@ -22,10 +22,10 @@ Library and Player
 ## Screenshots
 
 ### Home Screen
-![Home Screen](./screenshots/home.png)
+![Home Screen](./Screenshots/home.png)
 
 ### Playlist View
-![Playlist View](./screenshots/playlist.png)
+![Playlist View](./Screenshots/playlist.png)
 
 
 🚀 Tech Stack
