@@ -28,6 +28,34 @@ Library and Player
 Frontend: HTML, CSS, JavaScript,
 Other: Basic APIs, Local music files
 
+📦 Installation and Running Locally
+Clone the repository
+
+bash
+Copy
+Edit
+git clone https://github.com/your-username/melodaz.git
+cd melodaz
+Install dependencies
+
+bash
+Copy
+Edit
+npm install
+Start the development server
+
+bash
+Copy
+Edit
+npm start
+Open in browser
+
+arduino
+Copy
+Edit
+http://localhost:3000
+
+
 🔥 Future Improvements (Optional)
 Add user authentication (Sign up / Log in)
 
