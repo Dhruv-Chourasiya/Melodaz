@@ -22,10 +22,10 @@ Library and Player
 ## Screenshots
 
 ### Home Screen
-![Home Screen](./Melodaz/Screenshots/home.png)
+![Home Screen](./Melodaz/Melodaz/Screenshots/home.png)
 
 ### Playlist View
-![Playlist View](./Melodaz/Screenshots/playlist.png)
+![Playlist View](./Melodaz/Melodaz/Screenshots/playlist.png)
 
 
 🚀 Tech Stack
