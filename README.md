@@ -19,9 +19,13 @@ Home and Playlist View
 Library and Player
 
 
-#Screenshots
-![Melodaz Home Screen](./screenshots/melodaz-home.png)
-![Melodaz Playlist Screen](./screenshots/melodaz-playlist.png)
+## Screenshots
+
+### Home Screen
+![Home Screen](./screenshots/home.png)
+
+### Playlist View
+![Playlist View](./screenshots/playlist.png)
 
 
 🚀 Tech Stack
@@ -34,7 +38,7 @@ Clone the repository
 bash
 Copy
 Edit
-git clone https://github.com/your-username/melodaz.git
+git clone https://github.com/Dhruv-Chourasiya/melodaz.git
 cd melodaz
 Install dependencies
 
