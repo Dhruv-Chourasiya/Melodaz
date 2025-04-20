@@ -22,10 +22,10 @@ Library and Player
 ## Screenshots
 
 ### Home Screen
-![Home Screen](./Melodaz/Melodaz/Screenshots/home.png)
+![Home Screen](./screenshots/melodaz-home.png)
 
 ### Playlist View
-![Playlist View](./Melodaz/Melodaz/Screenshots/playlist.png)
+![Playlist View](./screenshots/melodaz-playlist.png)
 
 
 🚀 Tech Stack
@@ -35,20 +35,17 @@ Other: Basic APIs, Local music files
 📦 Installation and Running Locally
 Clone the repository
 
-bash
 Copy
 Edit
 git clone https://github.com/Dhruv-Chourasiya/melodaz.git
 cd melodaz
 Install dependencies
 
-bash
 Copy
 Edit
 npm install
 Start the development server
 
-bash
 Copy
 Edit
 npm start
