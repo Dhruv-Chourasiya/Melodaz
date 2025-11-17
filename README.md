@@ -19,14 +19,6 @@ Home and Playlist View
 Library and Player
 
 
-## Screenshots
-
-### Home Screen
-![Home Screen](./screenshots/melodaz-home.png)
-
-### Playlist View
-![Playlist View](./screenshots/melodaz-playlist.png)
-
 
 🚀 Tech Stack
 Frontend: HTML, CSS, JavaScript,
@@ -50,12 +42,6 @@ Copy
 Edit
 npm start
 Open in browser
-
-arduino
-Copy
-Edit
-http://localhost:3000
-
 
 🔥 Future Improvements (Optional)
 Add user authentication (Sign up / Log in)
